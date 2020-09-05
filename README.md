@@ -1,5 +1,7 @@
 # CYF React Todo List
 
+![CYF-React-TodoList](todolist.png "CYF React TodoList")
+
 ### How to use this repo?
 The implementation of this todo list project is spread across several branches to show the progression of the code. 
 The main branch contains a mostly empty project, acting as a starting point to build a Todo List application in React.
