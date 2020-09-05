@@ -1,9 +1,10 @@
 # CYF React Todo List
 
-### Step 1: Add a new todo item and display all the todo items in a list
+### Step 2: Delete a todo item
 
-- Different parts of the app have first been split in different components. The Header component contains the title and the form to add a new todo item. The TodoList component will show the list of todo items.
-- The `todoItems` state needs to be in the `App` component, as it is used by both `Header` and `TodoList` components. At the moment, the `todoItems` state simply records the value of each todo item in an array of string.
+- We introduce here a new `TodoItem` component to put all the logic associated with a single todo item. This `TodoItem` component is used by the `TodoList` component.
+- To delete a todo item, we need to have a way to identify uniquely each todo item. For this purpose, we add a new package `shortid` to generate a unique id for each todo item.
+- The state `todoItems` is now changed to be an array of JS object. Each object has 2 properties: `id` which is a unique identifier for each todo item, `title` which is the value of the todo item.
 
 ### How to use this repo?
 The implementation of this todo list project is spread across several branches to show the progression of the code. 

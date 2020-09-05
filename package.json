@@ -6,6 +6,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
+    "shortid": "^2.2.15",
     "todomvc-app-css": "^2.3.0"
   },
   "scripts": {

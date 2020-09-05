@@ -1,16 +1,12 @@
 import React from "react";
+import TodoItem from "./TodoItem";
 
-export default function TodoList({ items }) {
+export default function TodoList({ items, deleteTodoItem }) {
   return (
     <div className="main">
       <ul className="todo-list">
         {items.map(item => (
-          <li>
-            <div className="view">
-              <input className="toggle" type="checkbox" />
-              <label>{item}</label>
-            </div>
-          </li>
+          <TodoItem id={item.id} title={item.title} deleteTodoItem={deleteTodoItem} />
         ))}
       </ul>
     </div>
