@@ -1,14 +1,13 @@
 # CYF React Todo List
 
-### Step 6: Update a todo item
+### Step 7: Sort todo items alphabetically
 
-- When doing a double click on an item value, we show an input field to let the user edit the value of the todo item.
-- One function `updateTodoItem` is added in the `App` component and passed to the `TodoItem` component to update an item value in the `todoItems` state.
-- Most of the remaining logic happens in the `TodoItem` component.
-- In the `TodoItem` we need to track 2 new things.
-- The first thing is the `editMode` state, which tells us if we are currently in edit mode or not. When `editMode` is true, we replace the text of the todo item with a form and an input field. When `editMode` is false, we simply display the text of the todo item.
-- The second thing is the `itemNewValue` state, which records the new value of the todo item when the user updates it.
-- After the user edits the value of the todo item and press enter, we call the `updateTodoItem` function to update the `todoItems` state in the `App` component. And we also set the `editMode` back to false.
+- We add a new package `react-icons` (https://react-icons.github.io/) to use icons.
+- We add a new component `SortButton`, which is a button to let the user decides how to sort the todo items (alphabetically ascending or descending order). This new component uses icons from the `react-icons` package.
+- We use a new state `sortingOrder` in the `App` component, which can be either `null` (initial value), `asc` or `desc`.
+- We update the prop `items` passed to the `TodoList` component to get its value from a new function `getTodos`.
+- This function `getTodos` first get the filtered todo items, then apply the sorting logic.
+- The sorting logic is written in a new function `getSortedTodos` which sort the items in ascending or descending alphabetical order, depending on the value of the `sortingOrder` state.
 
 ### How to use this repo?
 The implementation of this todo list project is spread across several branches to show the progression of the code. 

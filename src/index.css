@@ -25,3 +25,12 @@ code {
   border: 1px solid #ccc;
   background-color: rgb(238, 238, 238);
 }
+
+.sorting {
+  position: absolute;
+  top: 21px;
+  font-size: 23px;
+  color: grey;
+  left: 10px;
+  z-index: 1000000;
+}

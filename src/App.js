@@ -7,6 +7,7 @@ import shortid from "shortid";
 export default function App() {
   const [todoItems, setTodoItems] = useState([]);
   const [filter, setFilter] = useState();
+  const [sortingOrder, setSortingOrder] = useState();
 
   const addTodoItem = (value) => {
     const newTodoItem = {
@@ -53,8 +54,12 @@ export default function App() {
     setFilter(filter);
   };
 
-  const getFilteredTodos = () => {
-    return todoItems.filter((item) => {
+  const applySortingOrder = (sortingOrder) => {
+    setSortingOrder(sortingOrder);
+  };
+
+  const getFilteredTodos = (items) => {
+    return items.filter((item) => {
       switch (filter) {
         case "active":
           return !item.completed;
@@ -65,12 +70,30 @@ export default function App() {
       }
     });
   };
+
+  const getSortedTodos = (items) => {
+    if(!sortingOrder) return items;
+    return items.sort((a,b) => {
+      if (sortingOrder === "asc") {
+        return a.title < b.title ? -1 : 1;
+      }
+      return a.title > b.title ? -1 : 1;
+    });
+  };
+
+  const getTodos = () => {
+    const filteredTodos = getFilteredTodos(todoItems);
+    return getSortedTodos(filteredTodos);
+  };
   
   return (
     <div className="todoapp">
-      <Header addTodoItem={addTodoItem} />
+      <Header 
+        addTodoItem={addTodoItem}
+        sortingOrder={sortingOrder}
+        applySortingOrder={applySortingOrder} />
       <TodoList 
-        items={getFilteredTodos()} 
+        items={getTodos()} 
         deleteTodoItem={deleteTodoItem} 
         completeTodoItem={completeTodoItem}
         updateTodoItem={updateTodoItem} />

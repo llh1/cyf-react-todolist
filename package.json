@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^3.11.0",
     "react-scripts": "3.4.3",
     "shortid": "^2.2.15",
     "todomvc-app-css": "^2.3.0"
