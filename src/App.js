@@ -6,6 +6,7 @@ import shortid from "shortid";
 
 export default function App() {
   const [todoItems, setTodoItems] = useState([]);
+  const [filter, setFilter] = useState();
 
   const addTodoItem = (value) => {
     const newTodoItem = {
@@ -36,14 +37,35 @@ export default function App() {
     const uncompletedTodos = todoItems.filter((todo) => !todo.completed);
     return uncompletedTodos.length;
   };
+
+  const applyFilter = (filter) => {
+    setFilter(filter);
+  };
+
+  const getFilteredTodos = () => {
+    return todoItems.filter((item) => {
+      switch (filter) {
+        case "active":
+          return !item.completed;
+        case "completed":
+          return item.completed;
+        default:
+          return item;
+      }
+    });
+  };
   
   return (
     <div className="todoapp">
       <Header addTodoItem={addTodoItem} />
-      <TodoList items={todoItems} 
+      <TodoList 
+        items={getFilteredTodos()} 
         deleteTodoItem={deleteTodoItem} 
         completeTodoItem={completeTodoItem} />
-      <Footer uncompleteCount={getUncompletedTodoCount()} />
+      <Footer 
+        uncompleteCount={getUncompletedTodoCount()}
+        filter={filter}
+        applyFilter={applyFilter} />
     </div>
   );
 }

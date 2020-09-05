@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.filters button {
+  margin: 0 10px;
+  padding: 1px 5px;
+}
+
+.filters button:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+.filter-selected {
+  border: 1px solid #ccc;
+  background-color: rgb(238, 238, 238);
+}

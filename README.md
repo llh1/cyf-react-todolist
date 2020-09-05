@@ -1,9 +1,11 @@
 # CYF React Todo List
 
-### Step 4: Display the number of items to complete
+### Step 5: Filter todo items: All, Active, Completed
 
-- We introduce a new component `Footer` to display the number of items to complete, that we use below the `TodoList` component.
-- The number of uncompleted todo items is computed in the function `getUncompletedTodoCount`. This function is called when assigning the prop `uncompleteCount` of the `Footer` component, which means that it will be called every time the `App` component re-renders (so we make sure the displayed count is always in sync when adding a new todo item, deleting a todo item or marking an item as completed).
+- Filters for all, active and completed are set in the `Footer` component.
+- Some extra CSS styles are added in `index.css` for the filter buttons.
+- A new `filter` state is used in the `App` component to record which filter is currently applied. It needs to be in the `App` component because it is used by both `Footer` and `TodoList` component.
+- The list of todo items is computed in the function `getFilteredTodos` based on the value of the `filter` state. This function is then called when assigning the prop `items` of the `TodoList` component, which means that it's called every time the `App` component re-renders. This way, we can make sure that the items we display are always in sync with our states.
 
 ### How to use this repo?
 The implementation of this todo list project is spread across several branches to show the progression of the code. 
