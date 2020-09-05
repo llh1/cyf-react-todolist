@@ -1,6 +1,12 @@
 import React from "react";
+import SearchBox from "./SearchBox";
 
-export default function Footer({ uncompleteCount, filter, applyFilter }) {
+export default function Footer({
+  uncompleteCount,
+  filter,
+  applyFilter,
+  applySearchQuery
+}) {
   const handleFilter = (choosenFilter) => {
     applyFilter(choosenFilter);
   };
@@ -34,6 +40,7 @@ export default function Footer({ uncompleteCount, filter, applyFilter }) {
           </button>
         </li>
       </ul>
+      <SearchBox applySearchQuery={applySearchQuery} />
     </div>
   );
 }

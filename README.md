@@ -1,13 +1,10 @@
 # CYF React Todo List
 
-### Step 7: Sort todo items alphabetically
+### Step 8: Search todo items
 
-- We add a new package `react-icons` (https://react-icons.github.io/) to use icons.
-- We add a new component `SortButton`, which is a button to let the user decides how to sort the todo items (alphabetically ascending or descending order). This new component uses icons from the `react-icons` package.
-- We use a new state `sortingOrder` in the `App` component, which can be either `null` (initial value), `asc` or `desc`.
-- We update the prop `items` passed to the `TodoList` component to get its value from a new function `getTodos`.
-- This function `getTodos` first get the filtered todo items, then apply the sorting logic.
-- The sorting logic is written in a new function `getSortedTodos` which sort the items in ascending or descending alphabetical order, depending on the value of the `sortingOrder` state.
+- We add a search input in the `Footer` component.
+- Like in previous step, we add a new `searchQuery` state in the `App` component to record the query typed by the user in the search input.
+- The `getTodos` function now get one more extra step to search for items matching the search query, before applying the filter and the sorting functionalities.
 
 ### How to use this repo?
 The implementation of this todo list project is spread across several branches to show the progression of the code. 

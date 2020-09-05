@@ -13,7 +13,7 @@ code {
 }
 
 .filters button {
-  margin: 0 10px;
+  margin: 0 5px;
   padding: 1px 5px;
 }
 
@@ -33,4 +33,24 @@ code {
   color: grey;
   left: 10px;
   z-index: 1000000;
+}
+
+.search {
+  position: absolute;
+  right: 0;
+  margin-right: 12px;
+}
+
+.search input {
+  width: 130px;
+  border: 1px solid #ccc;
+  padding: 2px;
+}
+
+.search .icon {
+  margin-left: -2px;
+  position: relative;
+  right: -6px;
+  top: 3px;
+  color: #ccc;
 }

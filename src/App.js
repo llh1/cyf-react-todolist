@@ -8,6 +8,7 @@ export default function App() {
   const [todoItems, setTodoItems] = useState([]);
   const [filter, setFilter] = useState();
   const [sortingOrder, setSortingOrder] = useState();
+  const [searchQuery, setSearchQuery] = useState("");
 
   const addTodoItem = (value) => {
     const newTodoItem = {
@@ -58,6 +59,10 @@ export default function App() {
     setSortingOrder(sortingOrder);
   };
 
+  const applySearchQuery = (query) => {
+    setSearchQuery(query);
+  };
+
   const getFilteredTodos = (items) => {
     return items.filter((item) => {
       switch (filter) {
@@ -81,8 +86,13 @@ export default function App() {
     });
   };
 
+  const searchItems = (items) => {
+    return items.filter(item => item.title.startsWith(searchQuery));
+  };
+
   const getTodos = () => {
-    const filteredTodos = getFilteredTodos(todoItems);
+    const foundItems = searchItems(todoItems);
+    const filteredTodos = getFilteredTodos(foundItems);
     return getSortedTodos(filteredTodos);
   };
   
@@ -100,7 +110,8 @@ export default function App() {
       <Footer 
         uncompleteCount={getUncompletedTodoCount()}
         filter={filter}
-        applyFilter={applyFilter} />
+        applyFilter={applyFilter}
+        applySearchQuery={applySearchQuery} />
     </div>
   );
 }
