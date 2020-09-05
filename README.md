@@ -1,5 +1,10 @@
 # CYF React Todo List
 
+### Step 1: Add a new todo item and display all the todo items in a list
+
+- Different parts of the app have first been split in different components. The Header component contains the title and the form to add a new todo item. The TodoList component will show the list of todo items.
+- The `todoItems` state needs to be in the `App` component, as it is used by both `Header` and `TodoList` components. At the moment, the `todoItems` state simply records the value of each todo item in an array of string.
+
 ### How to use this repo?
 The implementation of this todo list project is spread across several branches to show the progression of the code. 
 The main branch contains a mostly empty project, acting as a starting point to build a Todo List application in React.

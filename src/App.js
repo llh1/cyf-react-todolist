@@ -1,31 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import Header from "./components/Header";
+import TodoList from "./components/TodoList";
 
 export default function App() {
+  const [todoItems, setTodoItems] = useState([]);
+
+  const addTodoItem = (value) => {
+    setTodoItems([...todoItems, value]);
+  };
+  
   return (
     <div className="todoapp">
-      <div className="todoapp">
-        <div>
-          <h1>todos</h1>
-          <form>
-            <input
-              className="new-todo"
-              type="text"
-              placeholder="What needs to be done today?"
-              autoFocus
-            />
-          </form>
-        </div>
-        <div className="main">
-          <ul className="todo-list">
-            <li>
-              <div className="view">
-                <input className="toggle" type="checkbox" />
-                <label>Item 1</label>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <Header addTodoItem={addTodoItem} />
+      <TodoList items={todoItems} />
     </div>
   );
 }
