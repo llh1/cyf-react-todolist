@@ -9,7 +9,8 @@ export default function App() {
   const addTodoItem = (value) => {
     const newTodoItem = {
       id: shortid(),
-      title: value
+      title: value,
+      completed: false
     };
     setTodoItems([...todoItems, newTodoItem]);
   };
@@ -18,11 +19,24 @@ export default function App() {
     const newTodoItems = todoItems.filter((item) => item.id !== id);
     setTodoItems(newTodoItems);
   };
+
+  const completeTodoItem = (id) => {
+    const updatedTodos = todoItems.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+
+    setTodoItems(updatedTodos);
+  };
   
   return (
     <div className="todoapp">
       <Header addTodoItem={addTodoItem} />
-      <TodoList items={todoItems} deleteTodoItem={deleteTodoItem} />
+      <TodoList items={todoItems} 
+        deleteTodoItem={deleteTodoItem} 
+        completeTodoItem={completeTodoItem} />
     </div>
   );
 }

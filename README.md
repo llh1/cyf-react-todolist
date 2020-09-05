@@ -1,10 +1,11 @@
 # CYF React Todo List
 
-### Step 2: Delete a todo item
+### Step 3: Mark a todo item as completed
 
-- We introduce here a new `TodoItem` component to put all the logic associated with a single todo item. This `TodoItem` component is used by the `TodoList` component.
-- To delete a todo item, we need to have a way to identify uniquely each todo item. For this purpose, we add a new package `shortid` to generate a unique id for each todo item.
-- The state `todoItems` is now changed to be an array of JS object. Each object has 2 properties: `id` which is a unique identifier for each todo item, `title` which is the value of the todo item.
+- By default, when adding a new item, the status is not complete. 
+- We record the completed status as a new property `completed` when adding a new todo item.
+- When passing props to the `TodoItem` component, we want to pass everything contained in the `item` variable, a shorter syntax than passing explicitly each prop is to use  `{...item}`.
+- Like for deleting a todo item, we use the `id` to identify which item we want to mark as completed.
 
 ### How to use this repo?
 The implementation of this todo list project is spread across several branches to show the progression of the code. 
