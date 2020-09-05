@@ -11,7 +11,8 @@ export default function TodoList({
     <div className="main">
       <ul className="todo-list">
         {items.map(item => (
-          <TodoItem 
+          <TodoItem
+            key={`item-${item.id}`} 
             {...item} 
             deleteTodoItem={deleteTodoItem} 
             completeTodo={completeTodoItem}
