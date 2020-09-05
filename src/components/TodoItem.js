@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function TodoItem({ id, title, completed, deleteTodoItem, completeTodo }) {
+export default function TodoItem({
+  id,
+  title,
+  completed,
+  deleteTodoItem,
+  completeTodo,
+  updateTodoItem
+}) {
+  const [editMode, setEditMode] = useState(false);
+  const [itemNewValue, setItemNewValue] = useState(title);
+
   const handleDeleteItem = () => {
     deleteTodoItem(id);
   };
@@ -8,6 +18,20 @@ export default function TodoItem({ id, title, completed, deleteTodoItem, complet
   const handleCompleted = () => {
     completeTodo(id);
   };
+
+  const enableEditMode = () => {
+    setEditMode(true);
+  }
+
+  const handleUpdateValue = (event) => {
+    setItemNewValue(event.target.value);
+  };
+
+  const handleUpdateValueSubmit = (event) => {
+    event.preventDefault();
+    updateTodoItem(id, itemNewValue);
+    setEditMode(false);
+  }
 
   return (
     <li className={completed ? "completed" : ""}>
@@ -18,7 +42,13 @@ export default function TodoItem({ id, title, completed, deleteTodoItem, complet
           checked={completed}
           onChange={handleCompleted}
         />
-        <label>{title}</label>
+        <label onDoubleClick={enableEditMode}>
+          {editMode ? (
+            <form onSubmit={handleUpdateValueSubmit}>
+              <input value={itemNewValue} onChange={handleUpdateValue} autoFocus />
+            </form>
+          ) : title}
+        </label>
         <button className="destroy" onClick={handleDeleteItem} />
       </div>
     </li>

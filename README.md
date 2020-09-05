@@ -1,11 +1,14 @@
 # CYF React Todo List
 
-### Step 5: Filter todo items: All, Active, Completed
+### Step 6: Update a todo item
 
-- Filters for all, active and completed are set in the `Footer` component.
-- Some extra CSS styles are added in `index.css` for the filter buttons.
-- A new `filter` state is used in the `App` component to record which filter is currently applied. It needs to be in the `App` component because it is used by both `Footer` and `TodoList` component.
-- The list of todo items is computed in the function `getFilteredTodos` based on the value of the `filter` state. This function is then called when assigning the prop `items` of the `TodoList` component, which means that it's called every time the `App` component re-renders. This way, we can make sure that the items we display are always in sync with our states.
+- When doing a double click on an item value, we show an input field to let the user edit the value of the todo item.
+- One function `updateTodoItem` is added in the `App` component and passed to the `TodoItem` component to update an item value in the `todoItems` state.
+- Most of the remaining logic happens in the `TodoItem` component.
+- In the `TodoItem` we need to track 2 new things.
+- The first thing is the `editMode` state, which tells us if we are currently in edit mode or not. When `editMode` is true, we replace the text of the todo item with a form and an input field. When `editMode` is false, we simply display the text of the todo item.
+- The second thing is the `itemNewValue` state, which records the new value of the todo item when the user updates it.
+- After the user edits the value of the todo item and press enter, we call the `updateTodoItem` function to update the `todoItems` state in the `App` component. And we also set the `editMode` back to false.
 
 ### How to use this repo?
 The implementation of this todo list project is spread across several branches to show the progression of the code. 

@@ -22,6 +22,17 @@ export default function App() {
     setTodoItems(newTodoItems);
   };
 
+  const updateTodoItem = (id, newValue) => {
+    const updatedTodos = todoItems.map((todo) => {
+      if (todo.id === id) {
+        todo.title = newValue;
+      }
+      return todo;
+    });
+
+    setTodoItems(updatedTodos);
+  };
+
   const completeTodoItem = (id) => {
     const updatedTodos = todoItems.map((todo) => {
       if (todo.id === id) {
@@ -61,7 +72,8 @@ export default function App() {
       <TodoList 
         items={getFilteredTodos()} 
         deleteTodoItem={deleteTodoItem} 
-        completeTodoItem={completeTodoItem} />
+        completeTodoItem={completeTodoItem}
+        updateTodoItem={updateTodoItem} />
       <Footer 
         uncompleteCount={getUncompletedTodoCount()}
         filter={filter}
