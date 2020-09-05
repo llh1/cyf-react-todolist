@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
+import Footer from "./components/Footer";
 import shortid from "shortid";
 
 export default function App() {
@@ -30,6 +31,11 @@ export default function App() {
 
     setTodoItems(updatedTodos);
   };
+
+  const getUncompletedTodoCount = () => {
+    const uncompletedTodos = todoItems.filter((todo) => !todo.completed);
+    return uncompletedTodos.length;
+  };
   
   return (
     <div className="todoapp">
@@ -37,6 +43,7 @@ export default function App() {
       <TodoList items={todoItems} 
         deleteTodoItem={deleteTodoItem} 
         completeTodoItem={completeTodoItem} />
+      <Footer uncompleteCount={getUncompletedTodoCount()} />
     </div>
   );
 }

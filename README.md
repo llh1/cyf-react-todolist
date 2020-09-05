@@ -1,11 +1,9 @@
 # CYF React Todo List
 
-### Step 3: Mark a todo item as completed
+### Step 4: Display the number of items to complete
 
-- By default, when adding a new item, the status is not complete. 
-- We record the completed status as a new property `completed` when adding a new todo item.
-- When passing props to the `TodoItem` component, we want to pass everything contained in the `item` variable, a shorter syntax than passing explicitly each prop is to use  `{...item}`.
-- Like for deleting a todo item, we use the `id` to identify which item we want to mark as completed.
+- We introduce a new component `Footer` to display the number of items to complete, that we use below the `TodoList` component.
+- The number of uncompleted todo items is computed in the function `getUncompletedTodoCount`. This function is called when assigning the prop `uncompleteCount` of the `Footer` component, which means that it will be called every time the `App` component re-renders (so we make sure the displayed count is always in sync when adding a new todo item, deleting a todo item or marking an item as completed).
 
 ### How to use this repo?
 The implementation of this todo list project is spread across several branches to show the progression of the code. 
